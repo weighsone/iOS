@@ -16,6 +16,7 @@
     IBOutlet UITextField *txtTime;
     IBOutlet UITextView *txtNotes;
     IBOutlet UITextView *txtHardware;
+    //IBOutlet UIDatePicker *txtDate;
 }
 @end
 
