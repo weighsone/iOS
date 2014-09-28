@@ -14,7 +14,6 @@
 {
     IBOutlet UITextField *txtClient;
     IBOutlet UITextField *txtTime;
-    //IBOutlet UITextField *txtNotes;
     IBOutlet UITextView *txtNotes;
     IBOutlet UITextView *txtHardware;
 }
