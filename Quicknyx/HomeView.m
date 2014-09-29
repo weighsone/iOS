@@ -66,10 +66,10 @@
     [picker setToRecipients:[NSArray arrayWithObject:[userDefault objectForKey:@"Email"]]];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy 'at' h:mm a"];
     NSString *dateString = [formatter stringFromDate:txtDate.date ];
     
-    NSString *string=[NSString stringWithFormat:@"Date: %@\n Client: %@\n Time: %@ \n\n Notes: \n %@ \n Hardware: \n %@",dateString,txtClient.text,txtTime.text,txtNotes.text,txtHardware.text];
+    NSString *string=[NSString stringWithFormat:@"Date: %@\n\n Client: %@\n Time: %@ \n\n Notes: \n %@ \n\n Hardware: \n %@",dateString,txtClient.text,txtTime.text,txtNotes.text,txtHardware.text];
     dateString = @"";
     txtClient.text = @"";
     txtTime.text = @"";
