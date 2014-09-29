@@ -16,7 +16,7 @@
     IBOutlet UITextField *txtTime;
     IBOutlet UITextView *txtNotes;
     IBOutlet UITextView *txtHardware;
-    //IBOutlet UIDatePicker *txtDate;
+    IBOutlet UIDatePicker *txtDate;
 }
 @end
 
@@ -65,8 +65,12 @@
     
     [picker setToRecipients:[NSArray arrayWithObject:[userDefault objectForKey:@"Email"]]];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    NSString *dateString = [formatter stringFromDate:txtDate.date ];
     
-    NSString *string=[NSString stringWithFormat:@"Client: %@\n Time: %@ \n\n Notes: \n %@ \n Hardware: \n %@",txtClient.text,txtTime.text,txtNotes.text,txtHardware.text];
+    NSString *string=[NSString stringWithFormat:@"Date: %@\n Client: %@\n Time: %@ \n\n Notes: \n %@ \n Hardware: \n %@",dateString,txtClient.text,txtTime.text,txtNotes.text,txtHardware.text];
+    dateString = @"";
     txtClient.text = @"";
     txtTime.text = @"";
     txtNotes.text = @"";
@@ -82,15 +86,6 @@
 {
     [self.view endEditing:YES];
 }
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//
-//    UITouch *touch = [[event allTouches] anyObject];
-//    if ([_UItextField isFirstResponder] && [touch view] != _UItextField) {
-//        [_UItextField resignFirstResponder];
-//    }
-//    [super touchesBegan:touches withEvent:event];
-//}
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
